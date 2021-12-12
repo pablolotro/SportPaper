@@ -1,0 +1,26 @@
+Index: src/main/java/net/minecraft/server/PacketDataSerializer.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/net/minecraft/server/PacketDataSerializer.java b/src/main/java/net/minecraft/server/PacketDataSerializer.java
+--- a/src/main/java/net/minecraft/server/PacketDataSerializer.java	(revision 9fc463a535ba60325c480841b6acad3da151b03f)
++++ b/src/main/java/net/minecraft/server/PacketDataSerializer.java	(date 1639280671843)
+@@ -8,8 +8,6 @@
+ import io.netty.buffer.ByteBufProcessor;
+ import io.netty.handler.codec.DecoderException;
+ import io.netty.handler.codec.EncoderException;
+-import io.netty.util.ReferenceCounted;
+-import java.io.DataInput;
+ import java.io.DataOutput;
+ import java.io.IOException;
+ import java.io.InputStream;
+@@ -167,7 +165,7 @@
+             return null;
+         } else {
+             this.readerIndex(i);
+-            return NBTCompressedStreamTools.a((DataInput) (new ByteBufInputStream(this)), new NBTReadLimiter(2097152L));
++            return NBTCompressedStreamTools.a(new ByteBufInputStream(this), new NBTReadLimiter(45000L)); //No way a server will use 2megabytes of bytes (avoiding crashers)
+         }
+     }
+ 
