@@ -1,6 +1,10 @@
 # SportPaper [![Build Status](https://travis-ci.org/Electroid/SportPaper.png?branch=master)](https://travis-ci.org/Electroid/SportPaper)
 
-A fork of Paper 1.8 with changes for the Stratus Network using Magnet's build system.
+A fork of SportPaper 1.8 with changes for the Stratus Network using Magnet's build system & some length/packet limits to avoid scalability problems.
+
+* By liming the encoded data of the data-serializer
+* By replacing most of uncatch exceptions
+* By removing ping-handlers from bad-cycles
 
 Requirements
 ------------
